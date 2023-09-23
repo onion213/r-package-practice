@@ -7,8 +7,7 @@
 str_split_one(string, pattern, n = Inf)
 }
 \arguments{
-\item{string}{Input vector. Either a character vector, or something
-coercible to one.}
+\item{string}{A character vector with, at most, one element.}
 
 \item{pattern}{Pattern to look for.
 
@@ -32,8 +31,6 @@ For \code{split_split()}, this determines the maximum length of each element
 of the output. For \code{str_split_fixed()}, this determines the number of
 columns in the output; if an input is too short, the result will be padded
 with \code{""}.}
-
-\item{x}{A character vector with one element.}
 }
 \value{
 A character vector.
@@ -43,5 +40,9 @@ Split a string
 }
 \examples{
 x <- "alfa,bravo,charlie,delta"
-str_split_one(x, split = ",")
+str_split_one(x, pattern = ",")
+str_split_one(x, pattern = ",", n = 2)
+
+y <- "192.168.0.1"
+str_split_one(y, pattern = stringr::fixed("."))
 }
